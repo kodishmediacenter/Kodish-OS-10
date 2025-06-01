@@ -1,6 +1,6 @@
 #!/bin/bash
-# Instala o reflector (não vem no ISO)
-pacman -Sy reflector wget
+# Instala o reflector (nao vem no ISO)
+pacman -Syu --noconfirm reflector wget
 
 set -e
 
@@ -24,7 +24,7 @@ parted "$DISCO" --script mkpart ESP fat32 1MiB 513MiB
 parted "$DISCO" --script set 1 esp on
 parted "$DISCO" --script mkpart primary ext4 513MiB 100%
 
-# Define partições
+# Define particoes
 if [[ "$DISCO" == *"nvme"* ]]; then
   EFI="${DISCO}p1"
   ROOT="${DISCO}p2"
@@ -43,7 +43,7 @@ mkdir -p /mnt/boot/efi
 mount "$EFI" /mnt/boot/efi
 
 # Pacotes principais
-pacman -Sy archlinux-keyring --noconfirm
+pacman -S --noconfirm archlinux-keyring
 rm -f /var/cache/pacman/pkg/*.zst
 pacstrap /mnt base linux linux-firmware vim sudo networkmanager grub efibootmgr os-prober mtools dosfstools
 
@@ -53,7 +53,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # 🛠️ Configuração no sistema
 arch-chroot /mnt /bin/bash <<EOF
 
-# Localização
+# Localizacao
 ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc
 echo "pt_BR.UTF-8 UTF-8" > /etc/locale.gen
@@ -63,17 +63,27 @@ echo "KEYMAP=br-abnt2" > /etc/vconsole.conf
 
 # Hostname
 echo "archlinux" > /etc/hostname
+cat <<HOSTS > /etc/hosts
+127.0.0.1   localhost
+::1         localhost
+127.0.1.1   archlinux.localdomain archlinux
+HOSTS
 
 # NetworkManager
 systemctl enable NetworkManager
 
-# Usuário padrão
+# Suporte a Wi-Fi e Bluetooth
+pacman -S --noconfirm iwd bluez bluez-utils blueman
+systemctl enable iwd
+systemctl enable bluetooth
+
+# Usuario padrao
 useradd -m -G wheel -s /bin/bash kodish
 echo "kodish:kodish" | chpasswd
 echo "root:root" | chpasswd
 echo '%wheel ALL=(ALL:ALL) ALL' > /etc/sudoers.d/wheel
 
-# Ativa detecção de outros sistemas
+# Ativa deteccao de outros sistemas
 echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
 os-prober
 
@@ -81,29 +91,24 @@ os-prober
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch --removable --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# Interface gráfica XFCE + Xorg
-pacman -Sy --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter xfce4-whiskermenu-plugin
-pacman -Sy --noconfirm thunar-archive-plugin thunar-media-tags-plugin xfce4-battery-plugin xfce4-datetime-plugin
-pacman -Sy --noconfirm xfce4-mount-plugin xfce4-netload-plugin xfce4-notifyd xfce4-pulseaudio-plugin xfce4-wavelan-plugin
-pacman -Sy --noconfirm xfce4-weather-plugin xfce4-whiskermenu-plugin xfce4-xkb-plugin file-roller network-manager-applet
-
-
-# Define XFCE como sessão padrão
-# echo "exec startxfce4" > /home/kodish/.xinitrc
-# chown kodish:kodish /home/kodish/.xinitrc
+# Interface grafica XFCE + Xorg
+pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter xfce4-whiskermenu-plugin
+pacman -S --noconfirm thunar-archive-plugin thunar-media-tags-plugin xfce4-battery-plugin xfce4-datetime-plugin
+pacman -S --noconfirm xfce4-mount-plugin xfce4-netload-plugin xfce4-notifyd xfce4-pulseaudio-plugin xfce4-wavelan-plugin
+pacman -S --noconfirm xfce4-weather-plugin xfce4-whiskermenu-plugin xfce4-xkb-plugin file-roller network-manager-applet
 
 # Ativa LightDM
 systemctl enable lightdm
 systemctl set-default graphical.target
 
-# Ativa repositório multilib
+# Ativa repositorio multilib
 sed -i '/\[multilib\]/,/Include/s/^#//' /etc/pacman.conf
 pacman -Sy
 
 # Steam + suporte 32-bit
 pacman -S --noconfirm steam lib32-mesa lib32-libglvnd lib32-vulkan-icd-loader
 
-# Codecs multimídia
+# Codecs multimidia
 pacman -S --noconfirm gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly ffmpeg
 pacman -S --noconfirm firefox flatpak gparted
 
@@ -189,9 +194,8 @@ cat > /home/kodish/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml <<XM
 </channel>
 XML
 
-# Permissões de usuário
+# Permissoes de usuario
 chown -R kodish:kodish /home/kodish/.config
-systemctl enable lightdm
 
 # Extras
 pacman -S --noconfirm alsa-utils
@@ -201,28 +205,28 @@ pacman -S --noconfirm openbox arandr
 pacman -S --noconfirm wget
 pacman -S --noconfirm file-roller unzip unrar p7zip
 pacman -S --noconfirm file-roller neofetch
-systemctl --user enable --now pipewire pipewire-pulse wireplumber
 
-# Script para para colocar nome da Distro 
+# Scripts externos
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish_OS/refs/heads/master/scripts-kodish-gamer/name.sh
 sh name.sh
 
-# Baixar Atalho deskloader 
-cd  /home/kodish/"Área de trabalho"
+mkdir -p /home/kodish/Desktop || mkdir -p "/home/kodish/Área de trabalho"
+cd /home/kodish/Desktop 2>/dev/null || cd "/home/kodish/Área de trabalho"
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish_OS/refs/heads/master/scripts-kodish-gamer/deckloader.desktop
-chmod 7777 deckloader.desktop
+chmod +x deckloader.desktop
+chown kodish:kodish deckloader.desktop
 
-# Atualizar Teclado para pt-br 
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish_OS/refs/heads/master/scripts-kodish-gamer/keyboardbr.sh
 sh keyboardbr.sh
 
-# atualizar alias 
-echo "alias update='sudo pacman -Syu && flatpak update -y'" >> ~/.bashrc
-echo "alias iftk='f() { app_id=\${1##*/}; flatpak install  \"\$app_id\" -y; }; f'" >> ~/.bashrc
-echo "alias ftk='sudo pacman -S install'" >> ~/.bashrc
-echo "alias upgrade='sudo pacman -Syu'" >> ~/.bashrc
+# Aliases
+echo "alias update='sudo pacman -Syu && flatpak update -y'" >> /home/kodish/.bashrc
+echo "alias iftk='f() { app_id=\${1##*/}; flatpak install  \"\$app_id\" -y; }; f'" >> /home/kodish/.bashrc
+echo "alias ftk='sudo pacman -S install'" >> /home/kodish/.bashrc
+echo "alias upgrade='sudo pacman -Syu'" >> /home/kodish/.bashrc
+chown kodish:kodish /home/kodish/.bashrc
 
 EOF
 
 # ✅ Fim
-echo -e "\n✅ Arch Linux com XFCE + Whisker, Steam, Multilib e Codecs instalado com sucesso!"
+echo -e "\n✅ Arch Linux com XFCE + Whisker, Steam, Multilib, Wi-Fi, Bluetooth e Codecs instalado com sucesso!"
