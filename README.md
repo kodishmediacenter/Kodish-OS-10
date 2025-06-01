@@ -11,6 +11,6 @@ Repositorio Oficial Kodish OS 10 Gamer e HTPC
 * De boot na iso arch linux
 * De preferencia instalar com conexão ativa e cabeada
 
-pacman -Sy wget (Precione Enter e dia y para instalar) 
-wget https://tinyurl.com/kodishosgame
-mv kodishosgame kodishosgame.sh
+pacman -Sy wget (Precione Enter e dia y para instalar) <br>
+wget https://tinyurl.com/kodishosgame <br>
+mv kodishosgame kodishosgame.sh <br>
