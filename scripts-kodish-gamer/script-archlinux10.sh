@@ -83,6 +83,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 # Interface gráfica XFCE + Xorg
 pacman -Sy --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter xfce4-whiskermenu-plugin
+pacman -Sy --noconfirm thunar-archive-plugin thunar-media-tags-plugin xfce4-battery-plugin xfce4-datetime-plugin
+pacman -Sy --noconfirm xfce4-mount-plugin xfce4-netload-plugin xfce4-notifyd xfce4-pulseaudio-plugin xfce4-wavelan-plugin
+pacman -Sy --noconfirm xfce4-weather-plugin xfce4-whiskermenu-plugin xfce4-xkb-plugin file-roller network-manager-applet
+
 
 # Define XFCE como sessão padrão
 # echo "exec startxfce4" > /home/kodish/.xinitrc
