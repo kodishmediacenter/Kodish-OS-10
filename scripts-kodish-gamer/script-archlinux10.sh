@@ -226,6 +226,12 @@ echo "alias ftk='sudo pacman -S install'" >> /home/kodish/.bashrc
 echo "alias upgrade='sudo pacman -Syu'" >> /home/kodish/.bashrc
 chown kodish:kodish /home/kodish/.bashrc
 
+# Autologin
+wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/lightdm.conf
+cat lightdm.conf > /etc/lightdm/lightdm.conf
+sudo groupadd -r autologin
+sudo gpasswd -a kodish autologin
+
 EOF
 
 # ✅ Fim
