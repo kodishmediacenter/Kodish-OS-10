@@ -205,6 +205,7 @@ pacman -S --noconfirm openbox arandr
 pacman -S --noconfirm wget
 pacman -S --noconfirm file-roller unzip unrar p7zip
 pacman -S --noconfirm file-roller neofetch
+pacman -S --noconfirm nemo
 
 # Scripts externos
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish_OS/refs/heads/master/scripts-kodish-gamer/name.sh
@@ -229,8 +230,8 @@ chown kodish:kodish /home/kodish/.bashrc
 # Autologin
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/lightdm.conf
 cat lightdm.conf > /etc/lightdm/lightdm.conf
-sudo groupadd -r autologin
-sudo gpasswd -a kodish autologin
+groupadd -r autologin
+gpasswd -a kodish autologin
 
 EOF
 
