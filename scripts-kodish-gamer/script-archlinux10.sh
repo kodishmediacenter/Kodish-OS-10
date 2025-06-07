@@ -225,6 +225,7 @@ echo "alias update='sudo pacman -Syu && flatpak update -y'" >> /home/kodish/.bas
 echo "alias iftk='f() { app_id=\${1##*/}; flatpak install  \"\$app_id\" -y; }; f'" >> /home/kodish/.bashrc
 echo "alias ftk='sudo pacman -S install'" >> /home/kodish/.bashrc
 echo "alias upgrade='sudo pacman -Syu'" >> /home/kodish/.bashrc
+echo 'neofetch' >> /home/kodish/.bashrc
 chown kodish:kodish /home/kodish/.bashrc
 
 # Autologin
