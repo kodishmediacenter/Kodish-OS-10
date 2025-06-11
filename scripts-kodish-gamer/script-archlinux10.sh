@@ -206,6 +206,8 @@ pacman -S --noconfirm wget
 pacman -S --noconfirm file-roller unzip unrar p7zip
 pacman -S --noconfirm file-roller neofetch
 pacman -S --noconfirm nemo
+pacman -S --noconfirm retroarch
+
 
 # Scripts externos
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish_OS/refs/heads/master/scripts-kodish-gamer/name.sh
