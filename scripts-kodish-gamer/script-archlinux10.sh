@@ -206,7 +206,10 @@ pacman -S --noconfirm wget
 pacman -S --noconfirm file-roller unzip unrar p7zip
 pacman -S --noconfirm file-roller neofetch
 pacman -S --noconfirm nemo
-pacman -S --noconfirm retroarch
+pacman -S --noconfirm wine wine-mono wine-gecko lib32-gnutls vulkan-icd-loader lib32-vulkan-icd-loader
+pacman -S --noconfirm fuse2
+
+
 
 
 # Scripts externos
@@ -227,6 +230,7 @@ echo "alias update='sudo pacman -Syu && flatpak update -y'" >> /home/kodish/.bas
 echo "alias iftk='f() { app_id=\${1##*/}; flatpak install  \"\$app_id\" -y; }; f'" >> /home/kodish/.bashrc
 echo "alias ftk='sudo pacman -S install'" >> /home/kodish/.bashrc
 echo "alias upgrade='sudo pacman -Syu'" >> /home/kodish/.bashrc
+echo "alias stremio='flatpak run com.stremio.Stremio'" >> /home/kodish/.bashrc
 echo 'neofetch' >> /home/kodish/.bashrc
 chown kodish:kodish /home/kodish/.bashrc
 
@@ -235,6 +239,25 @@ wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads
 cat lightdm.conf > /etc/lightdm/lightdm.conf
 groupadd -r autologin
 gpasswd -a kodish autologin
+
+
+# Instalar yay
+pacman -S --noconfirm git base-devel
+cd /opt
+sudo git clone https://aur.archlinux.org/yay.git
+sudo chown -R kodish:kodish yay
+cd yay
+makepkg -si
+
+
+# criar o ambiente para pós instalação
+mkdir /kodish
+chmod 777 /kodish
+mkdir /kodish/scripts 
+chmod 777 /kodish/scripts 
+cd /kodish/scripts 
+
+
 
 EOF
 
