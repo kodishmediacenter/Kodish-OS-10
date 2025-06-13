@@ -231,6 +231,7 @@ echo "alias iftk='f() { app_id=\${1##*/}; flatpak install  \"\$app_id\" -y; }; f
 echo "alias ftk='sudo pacman -S install'" >> /home/kodish/.bashrc
 echo "alias upgrade='sudo pacman -Syu'" >> /home/kodish/.bashrc
 echo "alias stremio='flatpak run com.stremio.Stremio'" >> /home/kodish/.bashrc
+echo "alias retrodeck='flatpak install flathub net.retrodeck.retrodeck'" >> /home/kodish/.bashrc
 echo 'neofetch' >> /home/kodish/.bashrc
 chown kodish:kodish /home/kodish/.bashrc
 
@@ -256,7 +257,7 @@ chmod 777 /kodish
 mkdir /kodish/scripts 
 chmod 777 /kodish/scripts 
 cd /kodish/scripts 
-
+wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/flatpaks.sh
 
 
 EOF
