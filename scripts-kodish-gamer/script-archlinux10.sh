@@ -11,7 +11,7 @@ timedatectl set-ntp true
 # Detecta o maior disco
 DISCO=$(lsblk -dpo NAME,SIZE,TYPE | grep -w disk | sort -k2 -h | tail -n1 | awk '{print $1}')
 echo "Disco detectado: $DISCO"
-read -rp "⚠️ TODOS OS DADOS EM $DISCO SERÃO APAGADOS! Deseja continuar? (s/N): " CONFIRMA
+read -rp "TODOS OS DADOS EM $DISCO SERÃO APAGADOS! Deseja continuar? (s/N): " CONFIRMA
 [[ "$CONFIRMA" != "s" && "$CONFIRMA" != "S" ]] && exit 1
 
 # Limpa disco
@@ -90,6 +90,10 @@ os-prober
 # GRUB UEFI com fallback
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Arch --removable --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
+
+# Set Mirror para Brasil 
+pacman -S --noconfirm reflector
+reflector --country Brazil --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 # Interface grafica XFCE + Xorg
 pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter xfce4-whiskermenu-plugin
@@ -233,7 +237,9 @@ echo "alias ftk='sudo pacman -S install'" >> /home/kodish/.bashrc
 echo "alias upgrade='sudo pacman -Syu'" >> /home/kodish/.bashrc
 echo "alias stremio='flatpak run com.stremio.Stremio'" >> /home/kodish/.bashrc
 echo "alias retrodeck='flatpak install flathub net.retrodeck.retrodeck'" >> /home/kodish/.bashrc
-echo 'neofetch' >> /home/kodish/.bashrc
+echo "alias fupdate='flatpak update -y && sudo flatpak update -y'" >> /home/kodish/.bashrc
+echo "alias wallpaper='sudo nemo /usr/share/backgrounds/xfce'" >> /home/kodish/.bashrc
+#echo 'neofetch' >> /home/kodish/.bashrc
 chown kodish:kodish /home/kodish/.bashrc
 
 # Autologin
