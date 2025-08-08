@@ -116,6 +116,11 @@ pacman -S --noconfirm steam lib32-mesa lib32-libglvnd lib32-vulkan-icd-loader
 pacman -S --noconfirm gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly ffmpeg
 pacman -S --noconfirm firefox flatpak gparted
 
+# Instalar openssh
+pacman -S --noconfirm ssh
+systemctl enable sshd
+systemctl start sshd
+
 # Whisker Menu no painel do XFCE
 mkdir -p /home/kodish/.config/xfce4/xfconf/xfce-perchannel-xml
 
