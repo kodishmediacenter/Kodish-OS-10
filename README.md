@@ -1,4 +1,5 @@
-# Kodish-OS-10
+# Kodish OS 10 Gamer + HTPC Edition 
+
 Repositorio Oficial Kodish OS 10 Gamer e HTPC
 
 # Somos uma Distro Netinstall arch linux 
