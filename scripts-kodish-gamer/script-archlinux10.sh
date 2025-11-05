@@ -216,6 +216,7 @@ pacman -S --noconfirm file-roller unzip unrar p7zip
 pacman -S --noconfirm file-roller neofetch
 pacman -S --noconfirm nemo
 pacman -S --noconfirm wine wine-mono wine-gecko lib32-gnutls vulkan-icd-loader lib32-vulkan-icd-loader
+pacman -S --noconfirm ttf-liberation ttf-dejavu noto-fonts noto-fonts-emoji
 pacman -S --noconfirm fuse2
 pacman -S --noconfirm antimicrox
 
