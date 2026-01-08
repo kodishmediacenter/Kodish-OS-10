@@ -132,5 +132,20 @@ pacman -S --noconfirm fuse2
 
 #
 
+# Autologin
+wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/lightdm.conf
+cat lightdm.conf > /etc/lightdm/lightdm.conf
+groupadd -r autologin
+gpasswd -a kodish autologin
+
+
+# Instalar yay
+pacman -S --noconfirm git base-devel
+cd /opt
+sudo git clone https://aur.archlinux.org/yay.git
+sudo chown -R kodish:kodish yay
+cd yay
+makepkg -si
+
 # ✅ Fim
-echo -e "\n✅ Arch Linux com XFCE + Whisker, Steam, Multilib, Wi-Fi, Bluetooth e Codecs instalado com sucesso!"
+echo -e "\n✅ Kodish OS Instalado com Sucesso !"
