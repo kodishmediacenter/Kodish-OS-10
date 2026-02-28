@@ -255,13 +255,10 @@ groupadd -r autologin
 gpasswd -a kodish autologin
 
 
-# Instalar yay
-pacman -S --noconfirm git base-devel
-cd /opt
-sudo git clone https://aur.archlinux.org/yay.git
-sudo chown -R kodish:kodish yay
-cd yay
-makepkg -si
+# Instalar yay (Mudei pos)
+
+
+sudo pacman -S  --noconfirm hardinfo
 
 
 # criar o ambiente para pós instalação
