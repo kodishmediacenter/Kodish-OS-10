@@ -1,4 +1,5 @@
 #!/bin/bash
+# Script para Kodish OS 10 Pos Instalação
 
 # Flatpak 
 flatpak install flathub com.google.Chrome -y 
@@ -20,3 +21,12 @@ sudo pacman -S xdg-desktop-portal xdg-desktop-portal-gtk
 flatpak override --user com.google.Chrome --filesystem=home
 systemctl --user status xdg-desktop-portal
 systemctl --user restart xdg-desktop-portal
+
+
+# Instalando Suporte Aur 
+pacman -S --noconfirm git base-devel
+cd /opt
+sudo git clone https://aur.archlinux.org/yay.git
+sudo chown -R kodish:kodish yay
+cd yay
+makepkg -si
