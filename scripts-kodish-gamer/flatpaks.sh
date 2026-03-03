@@ -12,7 +12,10 @@ flatpak install flathub dev.aunetx.deezer -y
 flatpak install flathub com.github.louis77.tuner -y
 flatpak install flathub org.libretro.RetroArch -y 
 flatpak install flathub it.mijorus.gearlever -y
-flatpak install flathub net.davidotek.pupgui2
+flatpak install flathub net.davidotek.pupgui2 -y
+flatpak install flathub io.github.kolunmi.Bazaar -y
+flatpak install flathub com.obsproject.Studio -y
+
 
 # Correção google chrome  
 flatpak override --user com.google.Chrome --filesystem=xdg-download
