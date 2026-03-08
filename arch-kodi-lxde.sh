@@ -99,11 +99,6 @@ reflector --country Brazil --age 12 --protocol https --sort rate --save /etc/pac
 pacman -S --noconfirm xorg 
 sudo pacman -S --noconfirm kodi samba lirc
 
-
-# Ativa LightDM
-systemctl enable lightdm
-systemctl set-default graphical.target
-
 # Ativa repositorio multilib
 sed -i '/\[multilib\]/,/Include/s/^#//' /etc/pacman.conf
 pacman -Sy
@@ -190,6 +185,9 @@ wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads
 chmod +x instalar_nyaa.sh
 ./instalar_nyaa.sh
 
+# Ativa LightDM
+systemctl enable lightdm
+systemctl set-default graphical.target
 EOF
 
 # ✅ Fim
