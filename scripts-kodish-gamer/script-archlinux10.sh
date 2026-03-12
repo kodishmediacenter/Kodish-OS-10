@@ -219,6 +219,7 @@ pacman -S --noconfirm wine wine-mono wine-gecko lib32-gnutls vulkan-icd-loader l
 pacman -S --noconfirm ttf-liberation ttf-dejavu noto-fonts noto-fonts-emoji
 pacman -S --noconfirm fuse2
 pacman -S --noconfirm antimicrox
+pacman -S --noconfirm ntfs-3g
 
 
 
