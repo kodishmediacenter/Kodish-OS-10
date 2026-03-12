@@ -220,6 +220,7 @@ pacman -S --noconfirm ttf-liberation ttf-dejavu noto-fonts noto-fonts-emoji
 pacman -S --noconfirm fuse2
 pacman -S --noconfirm antimicrox
 pacman -S --noconfirm ntfs-3g
+pacman -S --noconfirm python-pyqt6 python-psutil python-pygame
 
 
 
