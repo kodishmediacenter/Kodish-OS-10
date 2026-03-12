@@ -246,6 +246,8 @@ echo "alias stremio='flatpak run com.stremio.Stremio'" >> /home/kodish/.bashrc
 echo "alias retrodeck='flatpak install flathub net.retrodeck.retrodeck'" >> /home/kodish/.bashrc
 echo "alias fupdate='flatpak update -y && sudo flatpak update -y'" >> /home/kodish/.bashrc
 echo "alias wallpaper='sudo nemo /usr/share/backgrounds/xfce'" >> /home/kodish/.bashrc
+echo "alias pos='sh /kodish/scripts/flatpaks.sh'" >> /home/kodish/.bashrc
+echo "alias inyaa='sh /kodish/scripts/instalar_nyaa.sh'" >> /home/kodish/.bashrc
 #echo 'neofetch' >> /home/kodish/.bashrc
 chown kodish:kodish /home/kodish/.bashrc
 
@@ -268,7 +270,6 @@ chmod 777 /kodish
 mkdir /kodish/scripts 
 chmod 777 /kodish/scripts 
 cd /kodish/scripts 
-exit
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/flatpaks.sh
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/instalar_nyaa.sh
 chmod +x instalar_nyaa.sh
