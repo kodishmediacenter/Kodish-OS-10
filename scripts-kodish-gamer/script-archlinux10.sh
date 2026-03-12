@@ -268,6 +268,7 @@ chmod 777 /kodish
 mkdir /kodish/scripts 
 chmod 777 /kodish/scripts 
 cd /kodish/scripts 
+exit
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/flatpaks.sh
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/instalar_nyaa.sh
 chmod +x instalar_nyaa.sh
