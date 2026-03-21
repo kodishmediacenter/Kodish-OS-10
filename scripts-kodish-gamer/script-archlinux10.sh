@@ -1,4 +1,7 @@
 #!/bin/bash
+
+echo "++++++++++Bem Vindo A Instalação Kodish OS 10 Gamming ++++++++++"
+
 # Instala o reflector (nao vem no ISO)
 pacman -Syu --noconfirm reflector wget
 
@@ -213,7 +216,6 @@ pacman -S --noconfirm noto-fonts-cjk kodi kodi-addon-inputstream-adaptive
 pacman -S --noconfirm openbox arandr
 pacman -S --noconfirm wget
 pacman -S --noconfirm file-roller unzip unrar p7zip
-pacman -S --noconfirm file-roller neofetch
 pacman -S --noconfirm nemo
 pacman -S --noconfirm wine wine-mono wine-gecko lib32-gnutls vulkan-icd-loader lib32-vulkan-icd-loader
 pacman -S --noconfirm ttf-liberation ttf-dejavu noto-fonts noto-fonts-emoji
@@ -221,6 +223,9 @@ pacman -S --noconfirm fuse2
 pacman -S --noconfirm antimicrox
 pacman -S --noconfirm ntfs-3g
 pacman -S --noconfirm python-pyqt6 python-psutil python-pygame
+pacman -S --noconfirm mpv 
+pacman -S --noconfirm  ffmpeg gst-libav gst-plugins-good gst-plugins-bad gst-plugins-ugly x264 x265 lame
+pacman -S  --noconfirm hardinfo
 
 
 
@@ -262,7 +267,7 @@ gpasswd -a kodish autologin
 # Instalar yay (Mudei pos)
 
 
-sudo pacman -S  --noconfirm hardinfo
+
 
 
 # criar o ambiente para pós instalação
