@@ -225,7 +225,7 @@ pacman -S --noconfirm ntfs-3g
 pacman -S --noconfirm python-pyqt6 python-psutil python-pygame
 pacman -S --noconfirm mpv 
 pacman -S --noconfirm  ffmpeg gst-libav gst-plugins-good gst-plugins-bad gst-plugins-ugly x264 x265 lame
-pacman -S  --noconfirm hardinfo
+pacman -S  --noconfirm hardinfo plymouth
 
 
 
@@ -278,6 +278,9 @@ chmod 777 /kodish/scripts
 cd /kodish/scripts 
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/flatpaks.sh
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/instalar_nyaa.sh
+wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/Kodish%20OS/logo-slider.zip
+unzip logo-slider.zip
+
 chmod +x instalar_nyaa.sh
 ./instalar_nyaa.sh
 
