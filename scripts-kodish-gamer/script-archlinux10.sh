@@ -256,7 +256,6 @@ echo "alias pos='sh /kodish/scripts/flatpaks.sh'" >> /home/kodish/.bashrc
 echo "alias inyaa='sh /kodish/scripts/instalar_nyaa.sh'" >> /home/kodish/.bashrc
 echo "alias info='sh /kodish/scripts/hw.sh'" >> /home/kodish/.bashrc
 echo "alias spotlight='sh /kodish/scripts/spotlight.sh" >> /home/kodish/.bashrc
-echo "alias ecron='EDITOR=nano crontab -e'" >> /home/kodish/.bashrc
 chown kodish:kodish /home/kodish/.bashrc
 
 # Autologin
