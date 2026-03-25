@@ -255,7 +255,7 @@ echo "alias wallpaper='sudo nemo /usr/share/backgrounds/xfce'" >> /home/kodish/.
 echo "alias pos='sh /kodish/scripts/flatpaks.sh'" >> /home/kodish/.bashrc
 echo "alias inyaa='sh /kodish/scripts/instalar_nyaa.sh'" >> /home/kodish/.bashrc
 echo "alias info='sh /kodish/scripts/hw.sh'" >> /home/kodish/.bashrc
-echo "alias spotlight='sh /kodish/scripts/spotlight.sh" >> /home/kodish/.bashrc
+echo "alias spotlight='sh /kodish/scripts/spotlight.sh'" >> /home/kodish/.bashrc
 chown kodish:kodish /home/kodish/.bashrc
 
 # Autologin
@@ -263,8 +263,8 @@ wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads
 cat lightdm.conf > /etc/lightdm/lightdm.conf
 groupadd -r autologin
 gpasswd -a kodish autologin
-
-
+rm -r lightdm.conf
+rm -r keyboardbr.sh
 # Crontab 
 sudo systemctl enable --now cronie
 
