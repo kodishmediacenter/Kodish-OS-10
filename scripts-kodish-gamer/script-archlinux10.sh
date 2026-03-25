@@ -226,7 +226,7 @@ pacman -S --noconfirm python-pyqt6 python-psutil python-pygame
 pacman -S --noconfirm mpv 
 pacman -S --noconfirm  ffmpeg gst-libav gst-plugins-good gst-plugins-bad gst-plugins-ugly x264 x265 lame
 pacman -S  --noconfirm hardinfo plymouth
-
+pacman -S  --noconfirm feh jq cronie
 
 
 
@@ -254,7 +254,9 @@ echo "alias fupdate='flatpak update -y && sudo flatpak update -y'" >> /home/kodi
 echo "alias wallpaper='sudo nemo /usr/share/backgrounds/xfce'" >> /home/kodish/.bashrc
 echo "alias pos='sh /kodish/scripts/flatpaks.sh'" >> /home/kodish/.bashrc
 echo "alias inyaa='sh /kodish/scripts/instalar_nyaa.sh'" >> /home/kodish/.bashrc
-#echo 'neofetch' >> /home/kodish/.bashrc
+echo "alias info='sh /kodish/scripts/hw.sh'" >> /home/kodish/.bashrc
+echo "alias spotlight='sh /kodish/scripts/spotlight.sh" >> /home/kodish/.bashrc
+echo "alias ecron='EDITOR=nano crontab -e'" >> /home/kodish/.bashrc
 chown kodish:kodish /home/kodish/.bashrc
 
 # Autologin
@@ -264,7 +266,8 @@ groupadd -r autologin
 gpasswd -a kodish autologin
 
 
-# Instalar yay (Mudei pos)
+# Crontab 
+sudo systemctl enable --now cronie
 
 
 
@@ -279,6 +282,8 @@ cd /kodish/scripts
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/flatpaks.sh
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/instalar_nyaa.sh
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/Kodish%20OS/logo-slider.zip
+wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/spotlight.sh
+wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/hw.sh
 unzip logo-slider.zip
 
 chmod +x instalar_nyaa.sh
