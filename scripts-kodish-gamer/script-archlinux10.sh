@@ -283,11 +283,16 @@ wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/Kodish%20OS/logo-slider.zip
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/spotlight.sh
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/hw.sh
-unzip logo-slider.zip
 
+unzip logo-slider.zip
 chmod +x instalar_nyaa.sh
 ./instalar_nyaa.sh
 
+# criar o ambiente para pós instalação
+mkdir /kodish/icon
+chmod 777 /kodish/icon
+cd /kodish/icon
+wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/Kodish%20OS/deckloader.png
 EOF
 
 # ✅ Fim
