@@ -48,7 +48,8 @@ mount "$EFI" /mnt/boot/efi
 # Pacotes principais
 pacman -S --noconfirm archlinux-keyring
 rm -f /var/cache/pacman/pkg/*.zst
-pacstrap /mnt base linux linux-firmware vim sudo networkmanager grub efibootmgr os-prober mtools dosfstools
+#pacstrap /mnt base linux linux-firmware vim sudo networkmanager grub efibootmgr os-prober mtools dosfstools
+pacstrap /mnt base linux-lts linux-lts-headers linux-firmware vim sudo networkmanager grub efibootmgr os-prober mtools dosfstools
 
 # fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -227,6 +228,12 @@ pacman -S --noconfirm mpv
 pacman -S --noconfirm  ffmpeg gst-libav gst-plugins-good gst-plugins-bad gst-plugins-ugly x264 x265 lame
 pacman -S  --noconfirm hardinfo plymouth
 pacman -S  --noconfirm feh jq cronie
+pacman -S --noconfirm vulkan-icd-loader lib32-vulkan-icd-loader vulkan-tools
+pacman -S --noconfirm gamemode mangohud
+pacman -S --noconfirm lib32-gamemode lib32-mangohud
+pacman -S --noconfirm winetricks
+
+
 
 
 
@@ -267,10 +274,6 @@ rm -r lightdm.conf
 rm -r keyboardbr.sh
 # Crontab 
 sudo systemctl enable --now cronie
-
-
-
-
 
 # criar o ambiente para pós instalação
 mkdir /kodish
