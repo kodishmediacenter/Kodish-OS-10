@@ -296,7 +296,10 @@ mkdir /kodish/icon
 chmod 777 /kodish/icon
 cd /kodish/icon
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/Kodish%20OS/deckloader.png
-EOF
 
-# ✅ Fim
-echo -e "\n✅ Arch Linux com XFCE + Whisker, Steam, Multilib, Wi-Fi, Bluetooth e Codecs instalado com sucesso!"
+# Correções Permissões 
+chmod 777 /home/kodish/Desktop
+
+# Lock Kernel 
+echo "" >> /etc/pacman.conf
+echo "IgnorePkg = linux linux-headers linux-lts linux-lts-headers" >> /etc/pacman.conf
