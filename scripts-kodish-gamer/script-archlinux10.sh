@@ -1,5 +1,5 @@
 #!/bin/bash
-
+clear
 echo "++++++++++Bem Vindo A Instalação Kodish OS 10 Gamming ++++++++++"
 
 # Instala o reflector (nao vem no ISO)
