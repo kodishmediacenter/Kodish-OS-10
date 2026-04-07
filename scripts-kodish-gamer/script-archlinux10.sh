@@ -263,6 +263,7 @@ echo "alias pos='sh /kodish/scripts/flatpaks.sh'" >> /home/kodish/.bashrc
 echo "alias inyaa='sh /kodish/scripts/instalar_nyaa.sh'" >> /home/kodish/.bashrc
 echo "alias info='sh /kodish/scripts/hw.sh'" >> /home/kodish/.bashrc
 echo "alias spotlight='sh /kodish/scripts/spotlight.sh'" >> /home/kodish/.bashrc
+echo "alias chaos='sh /kodish/scripts/chaos-repo.sh" >> /home/kodish/.bashrc
 chown kodish:kodish /home/kodish/.bashrc
 
 # Autologin
@@ -286,6 +287,7 @@ wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/Kodish%20OS/logo-slider.zip
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/spotlight.sh
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/hw.sh
+wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/chaos-repo.sh
 
 unzip logo-slider.zip
 chmod +x instalar_nyaa.sh
@@ -300,14 +302,7 @@ wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads
 # Correções Permissões 
 chmod 777 /home/kodish/Desktop
 
- pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
- pacman-key --lsign-key 3056513887B78AEB
- pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
- mv /etc/pacman.conf /etc/pacman.conf.bkp
- cd /etc/
- wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/pacman.conf
- pacman -Syy
-
- clear 
- echo "Instalação Concluida com Sucesso"
+# End
+clear 
+echo "Instalação Concluida com Sucesso"
 
