@@ -263,7 +263,7 @@ echo "alias pos='sh /kodish/scripts/flatpaks.sh'" >> /home/kodish/.bashrc
 echo "alias inyaa='sh /kodish/scripts/instalar_nyaa.sh'" >> /home/kodish/.bashrc
 echo "alias info='sh /kodish/scripts/hw.sh'" >> /home/kodish/.bashrc
 echo "alias spotlight='sh /kodish/scripts/spotlight.sh'" >> /home/kodish/.bashrc
-echo "alias chaos='sh /kodish/scripts/chaos-repo.sh" >> /home/kodish/.bashrc
+echo "alias chaos='sh /kodish/scripts/chaos-repo.sh'" >> /home/kodish/.bashrc
 chown kodish:kodish /home/kodish/.bashrc
 
 # Autologin
