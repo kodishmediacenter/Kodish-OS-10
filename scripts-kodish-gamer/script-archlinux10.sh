@@ -1,7 +1,8 @@
 #!/bin/bash
 clear
-echo "++++++++++Bem Vindo A Instalação Kodish OS 10 Gamming ++++++++++"
-
+printf "\e[0;32m[===============================================================]\e[m %s\n" "${1}";
+echo "++++++++++ Bem Vindo A Instalação Kodish OS 10 Gamming ++++++++++"
+printf "\e[0;32m[===============================================================]\e[m %s\n" "${1}";
 # Instala o reflector (nao vem no ISO)
 pacman -Syu --noconfirm reflector wget
 
