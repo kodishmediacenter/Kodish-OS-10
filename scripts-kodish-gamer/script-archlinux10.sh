@@ -233,7 +233,7 @@ pacman -S --noconfirm vulkan-icd-loader lib32-vulkan-icd-loader vulkan-tools
 pacman -S --noconfirm gamemode mangohud
 pacman -S --noconfirm lib32-gamemode lib32-mangohud
 pacman -S --noconfirm winetricks
-
+pacman -S --noconfirm  plymouth
 
 
 
@@ -290,10 +290,16 @@ wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/hw.sh
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/chaos-repo.sh
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/gamefmidia.sh
+wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/instalar-kodix.sh
 
 unzip logo-slider.zip
 chmod +x instalar_nyaa.sh
-./instalar_nyaa.sh
+chmod +x instalar-kodix.sh
+
+# Copiar plymount para pasta
+cp -r logo-slider /usr/share/plymouth/themes
+plymouth-set-default-theme -R  logo-slider 
+
 
 # criar o ambiente para pós instalação
 mkdir /kodish/icon
