@@ -33,6 +33,7 @@ sudo bash -c "cat > /etc/os-release" <<EOF
 NAME="$NAME"
 PRETTY_NAME="$PRETTY_NAME"
 ID=$ID
+ID_LIKE=arch
 VERSION="$VERSION"
 VERSION_ID=10
 HOME_URL="$HOME_URL"
@@ -43,9 +44,9 @@ EOF
 # Editar /etc/lsb-release
 echo -e "${GREEN}✏️ Atualizando /etc/lsb-release...${RESET}"
 sudo bash -c "cat > /etc/lsb-release" <<EOF
-DISTRIB_ID=$NAME
-DISTRIB_RELEASE=10
-DISTRIB_CODENAME=gamer
+DISTRIB_ID="$NAME"
+DISTRIB_RELEASE="10"
+DISTRIB_CODENAME="gamer"
 DISTRIB_DESCRIPTION="$PRETTY_NAME"
 EOF
 
