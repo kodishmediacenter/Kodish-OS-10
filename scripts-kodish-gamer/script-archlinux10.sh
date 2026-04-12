@@ -49,7 +49,7 @@ mount "$EFI" /mnt/boot/efi
 pacman -S --noconfirm archlinux-keyring
 rm -f /var/cache/pacman/pkg/*.zst
 #pacstrap /mnt base linux linux-firmware vim sudo networkmanager grub efibootmgr os-prober mtools dosfstools
-pacstrap /mnt base linux-lts linux-lts-headers linux-firmware vim sudo networkmanager grub efibootmgr os-prober mtools dosfstools
+pacstrap /mnt base linux-lts linux-lts-headers linux-firmware vim sudo networkmanager grub efibootmgr os-prober mtools dosfstools 
 
 # fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -118,7 +118,7 @@ pacman -S --noconfirm steam lib32-mesa lib32-libglvnd lib32-vulkan-icd-loader
 
 # Codecs multimidia
 pacman -S --noconfirm gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly ffmpeg
-pacman -S --noconfirm firefox flatpak gparted
+pacman -S --noconfirm firefox flatpak gparted base-devel git
 
 # Instalar openssh
 pacman -S --noconfirm ssh
