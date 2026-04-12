@@ -289,6 +289,7 @@ wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/spotlight.sh
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/hw.sh
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/chaos-repo.sh
+wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/gamefmidia.sh
 
 unzip logo-slider.zip
 chmod +x instalar_nyaa.sh
