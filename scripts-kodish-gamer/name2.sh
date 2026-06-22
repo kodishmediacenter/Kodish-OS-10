@@ -52,7 +52,7 @@ EOF
 
 # Editar GRUB
 echo -e "${GREEN}✏️ Atualizando /etc/default/grub...${RESET}"
-sudo sed -i 's/^GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR="Kodish OS 10 Gamer Edition"/' /etc/default/grub
+sudo sed -i 's/^GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR="Kodish OS 10 HTPC Edition"/' /etc/default/grub
 
 echo -e "${GREEN}🔄 Atualizando GRUB...${RESET}"
 sudo grub-mkconfig -o /boot/grub/grub.cfg
