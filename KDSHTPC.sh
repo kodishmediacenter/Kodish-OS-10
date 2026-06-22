@@ -114,9 +114,10 @@ pacman -S --noconfirm alsa-utils
 pacman -S --noconfirm pipewire pipewire-pulse wireplumber zenity jq lutris
 pacman -S --noconfirm noto-fonts-cjk kodi kodi-addon-inputstream-adaptive
 pacman -S --noconfirm openbox arandr
-pacman -S --noconfirm wget
+pacman -S --noconfirm wget thunar 
 pacman -S --noconfirm file-roller unzip unrar p7zip
 pacman -S --noconfirm  ffmpeg gst-libav gst-plugins-good gst-plugins-bad gst-plugins-ugly x264 x265 lame
+pacman -S --noconfirm pcmanfm-qt xterm xfce4-pannel
 
 # Scripts externos
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish_OS/refs/heads/master/scripts-kodish-gamer/name2.sh
