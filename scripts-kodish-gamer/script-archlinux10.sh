@@ -267,6 +267,9 @@ echo "alias spotlight='sh /kodish/scripts/spotlight.sh'" >> /home/kodish/.bashrc
 echo "alias chaos='sh /kodish/scripts/chaos-repo.sh'" >> /home/kodish/.bashrc
 chown kodish:kodish /home/kodish/.bashrc
 
+# criando alias para todos usuarios
+cat /home/kodish/.bashrc > /etc/skel/.bashrc
+
 # Autologin
 wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads/main/scripts-kodish-gamer/lightdm.conf
 cat lightdm.conf > /etc/lightdm/lightdm.conf
