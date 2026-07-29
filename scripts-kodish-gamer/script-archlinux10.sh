@@ -313,6 +313,11 @@ wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/refs/heads
 # Correções Permissões 
 chmod 777 /home/kodish/Desktop
 
+# Trocando Papel de Parede 
+cd /usr/share/backgrounds/xfce
+sudo rm -r xfce-x.svg
+sudo wget https://raw.githubusercontent.com/kodishmediacenter/Kodish-OS-10/d1b090f5233a7957117fa87fd746ea4bdd2876b3/yona/xfce-x.svg
+
 # End
 clear 
 echo "Instalação Concluida com Sucesso"
