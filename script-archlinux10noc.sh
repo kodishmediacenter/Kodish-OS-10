@@ -62,7 +62,7 @@ pacman -S --noconfirm archlinux-keyring
 rm -f /var/cache/pacman/pkg/*.zst
 
 # Sistema base
-#pacstrap /mnt base linux-lts linux-lts-headers linux-firmware vim sudo networkmanager grub efibootmgr os-prober mtools dosfstools
+pacstrap /mnt base linux-lts linux-lts-headers linux-firmware vim sudo networkmanager grub efibootmgr os-prober mtools dosfstools
 
 # fstab
 genfstab -U /mnt >> /mnt/etc/fstab
